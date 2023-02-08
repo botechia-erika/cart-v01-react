@@ -12,7 +12,7 @@ export default function App() {
     {
       id: 1,
       name: 'p2',
-      price: 150,
+      price: 190,
       img: 'https://th.bing.com/th?id=ORMS.a1290f48c166cc6d06cebdc3968061eb&pid=Wdp&w=612&h=304&qlt=90&c=1&rs=1&dpr=0.8999999761581421&p=0',
     },
   ]);
@@ -24,8 +24,8 @@ export default function App() {
         if (product.id === itemCart.id) {
           itemCart.quantity++;
         }
-      })
-      setItemsCart(carrito)
+        setItemsCart([...itemsCart, { ...(product.quantity += 1) }]);
+      });
     } else {
       setItemsCart([...itemsCart, { ...product, quantity: 1 }]);
     }
